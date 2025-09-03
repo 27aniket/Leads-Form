@@ -34,8 +34,6 @@ const LeadForm = ({ onLeadAdded }) => {
 
       
       const res = await axios.post("/api/lead", form);
-
-      
       onLeadAdded(res.data);
 
       // reset form

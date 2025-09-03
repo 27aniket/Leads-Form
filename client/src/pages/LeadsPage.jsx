@@ -24,14 +24,9 @@ const LeadsPage = () => {
   }, []);
 
   // Add newly created lead to list
-  const handleLeadAdded = async (newLead) => {
-    try {
-      const res = await axios.post("/api/lead", newLead);
-      setLeads((prev) => [res.data, ...prev]);
-    } catch (err) {
-      console.error("Error adding lead:", err);
-    }
-  };
+ const handleLeadAdded = (newLead) => {
+   setLeads((prev) => [newLead, ...prev]); // prepend the new lead
+ };
 
   return (
     <div className="grid gap-6 md:grid-cols-2">
